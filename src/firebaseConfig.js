@@ -1,16 +1,18 @@
-import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore/lite";
+import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBc7Kncm9hRqqkxf-qvN-DxHi8c9-7zIYc",
-    authDomain: "vue-3-2022.firebaseapp.com",
-    projectId: "vue-3-2022",
-    storageBucket: "vue-3-2022.appspot.com",
-    messagingSenderId: "437721204864",
-    appId: "1:437721204864:web:6827a521e3a8bb008a3e65",
+  apiKey: "AIzaSyCwa8WBuPkybFDxfuKH0ifXHOoPtOjAXkQ",
+  authDomain: "fir-appauth-19aa3.firebaseapp.com",
+  projectId: "fir-appauth-19aa3",
+  storageBucket: "fir-appauth-19aa3.appspot.com",
+  messagingSenderId: "65233791867",
+  appId: "1:65233791867:web:5975e2ea8e8758811aabde",
 };
 
-initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-
-export { auth };
+const db = getFirestore();
+export { auth, db };
