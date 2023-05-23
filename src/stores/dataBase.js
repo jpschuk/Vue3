@@ -6,9 +6,14 @@ import { auth } from "../firebaseConfig";
 export const useDatabaseStore = defineStore("database", {
   state: () => ({
     documents: [],
+    loadingDoc: false,
   }),
   actions: {
     async getUrls() {
+      if (this.documents.length != 0) {
+        return;
+      }
+      this.loadingDoc = true;
       const q = query(
         collection(db, "urlz"),
         where("user", "==", auth.currentUser.uid)
@@ -24,6 +29,7 @@ export const useDatabaseStore = defineStore("database", {
       } catch (error) {
         console.log(error);
       } finally {
+        this.loadingDoc = false;
       }
     },
   },

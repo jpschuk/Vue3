@@ -3,7 +3,8 @@
     <h1>Home</h1>
     <p>{{ userStore.userData?.email }}</p>
   </div>
-  <ul>
+  <p v-if="databaseStore.loadingDoc">Loading Documents</p>
+  <ul v-else>
     <li v-for="item in databaseStore.documents" :key="item.id">
       {{ item.id }} <br />
       {{ item.name }} <br />
